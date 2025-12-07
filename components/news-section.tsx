@@ -14,6 +14,8 @@ async function getArticles() {
     title,
     'slug': slug.current,
     summary,
+    primaryTicker,
+    tickers,
     publishedAt,
     source,
     category,
@@ -124,6 +126,30 @@ export async function NewsSection() {
                     >
                       {article.title}
                     </h3>
+                    {(article.primaryTicker || (article.tickers && article.tickers.length > 0)) && (
+                      <div className="mb-3 flex flex-wrap gap-2 text-xs font-medium">
+                        {article.primaryTicker && (
+                          <span
+                            className="inline-flex items-center rounded-full bg-secondary/15 px-3 py-1 text-secondary border border-secondary/40 cursor-pointer"
+                            role="button"
+                          >
+                            {article.primaryTicker}
+                          </span>
+                        )}
+                        {article.tickers &&
+                          article.tickers
+                            .filter((t: string) => t && t !== article.primaryTicker)
+                            .map((ticker: string) => (
+                              <span
+                                key={ticker}
+                                className="inline-flex items-center rounded-full bg-secondary/10 px-3 py-1 text-secondary/90 border border-secondary/25 cursor-pointer"
+                                role="button"
+                              >
+                                {ticker}
+                              </span>
+                            ))}
+                      </div>
+                    )}
                     {article.summary && (
                       <p className="text-muted-foreground leading-relaxed">{article.summary}</p>
                     )}

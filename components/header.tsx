@@ -1,6 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
+import { ContactDrawerLink } from "@/components/contact-drawer"
 
 export function Header() {
   return (
@@ -22,23 +25,20 @@ export function Header() {
                 The Wire
               </Link>
               <Link
-                href="#services"
+                href="/#services"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Services
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 About
               </Link>
-              <Link
-                href="#contact"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
+              <ContactDrawerLink className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Contact
-              </Link>
+              </ContactDrawerLink>
             </nav>
           </div>
           <div className="flex items-center gap-4">

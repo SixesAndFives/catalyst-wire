@@ -10,6 +10,7 @@ import { notFound } from "next/navigation"
 import { PortableText } from "@portabletext/react"
 import { sanityClient } from "@/lib/sanity"
 import { urlFor } from "@/lib/sanityImage"
+import { ArticleSubscribeForm } from "@/components/article-subscribe-form"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -66,19 +67,6 @@ export default async function ArticlePage(props: Props) {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
-
-          <div className="absolute top-6 left-0 right-0 z-10 container mx-auto px-4 lg:px-8">
-            <Link href="/#news">
-              <Button
-                variant="secondary"
-                size="sm"
-                className="group bg-background/90 hover:bg-background backdrop-blur-sm"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                Back to The Wire
-              </Button>
-            </Link>
-          </div>
         </div>
 
         {/* Article Content */}
@@ -103,6 +91,31 @@ export default async function ArticlePage(props: Props) {
               <h1 className="font-serif text-4xl font-bold tracking-tight text-foreground text-balance lg:text-5xl">
                 {article.title}
               </h1>
+
+              {(article.primaryTicker || (article.tickers && article.tickers.length > 0)) && (
+                <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium">
+                  {article.primaryTicker && (
+                    <span
+                      className="inline-flex items-center rounded-full bg-secondary/15 px-3 py-1 text-secondary border border-secondary/40 cursor-pointer"
+                      role="button"
+                    >
+                      {article.primaryTicker}
+                    </span>
+                  )}
+                  {article.tickers &&
+                    article.tickers
+                      .filter((t: string) => t && t !== article.primaryTicker)
+                      .map((ticker: string) => (
+                        <span
+                          key={ticker}
+                          className="inline-flex items-center rounded-full bg-secondary/10 px-3 py-1 text-secondary/90 border border-secondary/25 cursor-pointer"
+                          role="button"
+                        >
+                          {ticker}
+                        </span>
+                      ))}
+                </div>
+              )}
 
               {article.summary && (
                 <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -185,13 +198,7 @@ export default async function ArticlePage(props: Props) {
                 <p className="mb-6 text-muted-foreground leading-relaxed">
                   Get the latest insights and analysis on public companies delivered directly to your inbox.
                 </p>
-                <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                  <Input type="email" placeholder="Enter your email" className="sm:w-80" />
-                  <Button size="lg" className="group">
-                    Subscribe
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
+                <ArticleSubscribeForm articleSlug={article.slug} />
               </div>
             </div>
 
@@ -211,26 +218,19 @@ export default async function ArticlePage(props: Props) {
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                           />
                         </div>
-                        <div className="p-6">
-                          <div className="mb-3 flex items-center gap-2 text-sm text-muted-foreground">
-                            {related.category && (
-                              <span className="rounded-full bg-secondary/10 px-2 py-0.5 text-xs font-medium text-secondary">
-                                {related.category}
-                              </span>
-                            )}
-                            {related.publishedAt && (
-                              <>
-                                <span>•</span>
-                                <span>{new Date(related.publishedAt).toLocaleDateString()}</span>
-                              </>
-                            )}
-                          </div>
-                          <h3 className="mb-2 font-serif text-lg font-semibold text-card-foreground transition-colors group-hover:text-secondary text-balance">
+                        <div className="p-6 flex flex-col gap-3">
+                          <h3 className="font-serif text-lg font-semibold text-card-foreground transition-colors group-hover:text-secondary text-balance">
                             {related.title}
                           </h3>
                           {related.summary && (
-                            <p className="line-clamp-2 text-sm text-muted-foreground">{related.summary}</p>
+                            <p className="line-clamp-3 text-sm text-muted-foreground leading-relaxed">
+                              {related.summary}
+                            </p>
                           )}
+                          <div className="mt-auto flex items-center text-sm font-medium text-secondary">
+                            Read Full Article
+                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          </div>
                         </div>
                       </Link>
                     </Card>

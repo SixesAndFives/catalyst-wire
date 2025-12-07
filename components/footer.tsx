@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { LegalLink } from "@/components/legal-drawer"
+import { ContactDrawerLink } from "@/components/contact-drawer"
 
 export function Footer() {
   return (
@@ -20,22 +22,22 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold text-foreground">Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
                   Capital Markets
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
                   Deal Structuring
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
                   Strategic Advisory
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
                   Market Research
                 </Link>
               </li>
@@ -45,24 +47,19 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold text-foreground">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                <ContactDrawerLink className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
-                </Link>
+                </ContactDrawerLink>
               </li>
             </ul>
           </div>
@@ -70,19 +67,13 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold text-foreground">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Privacy Policy
-                </Link>
+                <LegalLink type="privacy">Privacy Policy</LegalLink>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Terms of Service
-                </Link>
+                <LegalLink type="terms">Terms of Service</LegalLink>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Disclaimer
-                </Link>
+                <LegalLink type="disclaimer">Disclaimer</LegalLink>
               </li>
             </ul>
           </div>
