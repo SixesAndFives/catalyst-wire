@@ -47,6 +47,11 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold text-foreground">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/the-wire" className="text-muted-foreground hover:text-foreground transition-colors">
+                  The Wire
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
                   About Us
                 </Link>
@@ -79,7 +84,22 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Catalyst Wire. All rights reserved.</p>
+          <p>&copy; 2025 Catalyst Wire. All rights reserved.</p>
+          <p className="mx-auto mt-3 max-w-5xl text-xs italic leading-relaxed text-muted-foreground">
+            Disclaimer: The content on this website (including articles, posts, emails, and any linked materials) is for
+            informational and educational purposes only and does not constitute investment, legal, tax, or other
+            professional advice. The authors, CatalystWire and/or its affiliates may, from time to time, own shares,
+            options, warrants, or other securities of the companies mentioned or discussed. Nothing on this site is, or
+            should be construed as, a recommendation, solicitation, or offer to buy or sell any security, or to
+            participate in any private or public financing or other transaction. All opinions expressed are solely those
+            of the author(s) as of the date of publication and are subject to change without notice. You should assume
+            that we may be biased and that we may benefit from any change in the value of the securities we discuss.
+            Always do your own research and due diligence, and consult with a qualified, registered financial advisor,
+            broker, or other investment professional before making any investment decision. To the maximum extent
+            permitted by law, neither the authors nor CatalystWire accept any liability whatsoever for any loss or damage
+            (including without limitation any direct, indirect, or consequential loss) arising from any use of, or
+            reliance on, any information contained on this website or in any linked materials.
+          </p>
         </div>
       </div>
     </footer>

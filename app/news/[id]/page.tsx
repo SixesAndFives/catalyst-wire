@@ -1,5 +1,3 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
@@ -11,6 +9,7 @@ import { PortableText } from "@portabletext/react"
 import { sanityClient } from "@/lib/sanity"
 import { urlFor } from "@/lib/sanityImage"
 import { ArticleSubscribeForm } from "@/components/article-subscribe-form"
+import { LegalLink } from "@/components/legal-drawer"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -54,24 +53,20 @@ export default async function ArticlePage(props: Props) {
   const relatedArticles = await sanityClient.fetch(relatedQuery, { slug })
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        {/* Hero Image Section */}
-        <div className="relative h-[400px] w-full bg-muted lg:h-[500px]">
-          <Image
-            src={article.mainImage ? urlFor(article.mainImage).width(1600).height(900).url() : "/placeholder.svg"}
-            alt={article.title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
-        </div>
+    <>
+      <div className="relative h-[400px] w-full bg-muted lg:h-[500px]">
+        <Image
+          src={article.mainImage ? urlFor(article.mainImage).width(1600).height(900).url() : "/placeholder.svg"}
+          alt={article.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+      </div>
 
-        {/* Article Content */}
-        <article className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-4xl">
+      <article className="container mx-auto px-4 lg:px-8">
+        <div className="mx-auto max-w-4xl">
             {/* Article Header */}
             <div className="mb-8 mt-12 space-y-6">
               <div className="flex flex-wrap items-center gap-3 text-sm">
@@ -189,6 +184,17 @@ export default async function ArticlePage(props: Props) {
               />
             </div>
 
+            <div className="border-t border-border pt-6">
+              <p className="text-xs italic leading-relaxed text-muted-foreground">
+                This article reflects personal research and opinions and is provided for informational purposes only. It
+                is not financial advice, a recommendation to buy or sell any security, or a consideration of your
+                individual circumstances. Investing in small-cap and pre-commercialization companies involves significant
+                risk, including the risk of total loss. Always do your own research and consider speaking with a
+                qualified financial professional before making investment decisions.{' '}
+                <LegalLink type="disclaimer">Read our full disclosure.</LegalLink>
+              </p>
+            </div>
+
             {/* Newsletter CTA */}
             <div className="my-16 rounded-lg border border-border bg-secondary/5 p-8 lg:p-12">
               <div className="mx-auto max-w-2xl text-center">
@@ -239,10 +245,8 @@ export default async function ArticlePage(props: Props) {
               </div>
             )}
           </div>
-        </article>
-      </main>
-      <Footer />
-    </div>
+      </article>
+    </>
   )
 }
 

@@ -1,7 +1,5 @@
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ArrowRight, Clock, Zap, Twitter, Instagram, Youtube } from "lucide-react"
+import { ArrowRight, Clock, Zap } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { sanityClient } from "@/lib/sanity"
@@ -44,39 +42,6 @@ export async function NewsSection() {
             </p>
           </div>
           <NewsSubscribeForm />
-        </div>
-
-        <div className="mb-8 flex items-center gap-4">
-          <span className="text-sm font-medium text-muted-foreground">Follow The Wire:</span>
-          <div className="flex items-center gap-3">
-            <Link
-              href="https://twitter.com/catalystwire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-secondary hover:border-secondary"
-            >
-              <Twitter className="h-4 w-4 text-foreground" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="https://instagram.com/catalystwire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-secondary hover:border-secondary"
-            >
-              <Instagram className="h-4 w-4 text-foreground" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="https://youtube.com/@catalystwire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-secondary hover:border-secondary"
-            >
-              <Youtube className="h-4 w-4 text-foreground" />
-              <span className="sr-only">YouTube</span>
-            </Link>
-          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">

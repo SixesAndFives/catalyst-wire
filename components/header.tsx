@@ -19,7 +19,7 @@ export function Header() {
             </Link>
             <nav className="hidden md:flex items-center gap-6">
               <Link
-                href="#news"
+                href="/the-wire"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 The Wire

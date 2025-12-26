@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-muted/30 py-12 lg:py-16">
@@ -25,15 +22,6 @@ export function HeroSection() {
             Empowering visionary individuals with ideas that are not just high-growth but also unique and game-changing.
             Your trusted source for public company intelligence and strategic capital market insights.
           </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="group">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Learn More
-            </Button>
-          </div>
         </div>
       </div>
     </section>
