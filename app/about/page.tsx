@@ -104,7 +104,7 @@ export default function AboutPage() {
                   emphasizing companies that combine technological innovation with sustainability. His portfolio spans
                   breakthrough ventures including Medicago (acquired for $357 million by Mitsubishi Pharma and Philip
                   Morris), Charbone Hydrogen Corporation in green hydrogen production, and Aduro Clean Technologies
-                  (NASDAQ: ADUR, CSE: ACT, FSE: 9D5) in AI-powered chemical recycling.
+                  (NASDAQ: ADUR, CSE: ACT, FSE: 9D5) in Hydrochemolytic / chemical recycling.
                 </p>
                 <p>
                   Recognized as a thought leader in sustainable venture capital, al Homsi champions the integration
