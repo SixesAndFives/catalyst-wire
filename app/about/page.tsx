@@ -59,17 +59,7 @@ export default function AboutPage() {
       {/* Yazan Bio */}
       <section className="bg-muted/30 border-b border-border">
         <div className="container mx-auto px-4 py-16 lg:px-8 lg:py-24 max-w-5xl">
-          <div className="mb-10 grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-start">
-            <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-background to-muted shadow-sm w-[300px] h-[450px]">
-              <Image
-                src="/yazan.png"
-                alt="Yazan al Homsi"
-                width={300}
-                height={450}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+          <div className="mb-10">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary mb-2">Leadership</p>
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">Yazan al Homsi</h2>
@@ -77,7 +67,17 @@ export default function AboutPage() {
                 Venture Capitalist | Strategic Investor | ESG Advocate
               </p>
 
-              <div className="mt-6 space-y-5 text-base md:text-lg leading-relaxed text-muted-foreground">
+              <div className="mt-6 space-y-5 text-base md:text-lg leading-relaxed text-muted-foreground after:content-[''] after:block after:clear-both">
+                <div className="mx-auto mb-6 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-background to-muted shadow-sm w-[220px] h-[330px] md:float-left md:mr-10 md:mb-4 md:ml-0 md:w-[300px] md:h-[450px]">
+                  <Image
+                    src="/yazan.png"
+                    alt="Yazan al Homsi"
+                    width={300}
+                    height={450}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
                 <p>
                   Yazan al Homsi is a venture capitalist and financial strategist whose career bridges the Middle East
                   and North America, specializing in identifying and scaling transformative small-cap companies across
@@ -99,13 +99,31 @@ export default function AboutPage() {
                   opportunities and facilitate international partnerships that drive both financial returns and
                   meaningful environmental impact.
                 </p>
-                <p>
-                  Al Homsi's investment philosophy centers on Environmental, Social, and Governance (ESG) principles,
-                  emphasizing companies that combine technological innovation with sustainability. His portfolio spans
-                  breakthrough ventures including Medicago (acquired for $357 million by Mitsubishi Pharma and Philip
-                  Morris), Charbone Hydrogen Corporation in green hydrogen production, and Aduro Clean Technologies
-                  (NASDAQ: ADUR, CSE: ACT, FSE: 9D5) in Hydrochemolytic / chemical recycling.
-                </p>
+                <blockquote className="mt-6 border-l-2 border-border pl-6 italic text-muted-foreground">
+                  <p>
+                    "I am an investor in Rocket Doctor AI, Leviathan Metals Corp, Goat Industries (owner of BetSource),
+                    and EduMentors for distinct, thesis-driven reasons. With Rocket Doctor AI, I believe the platform is
+                    among the best in the market—its ability to reduce ER visits in Canada is a real-world proof point,
+                    and being in-network with leading U.S. insurers positions the company well for broader adoption in
+                    the U.S. Leviathan Metals aligns with my view that copper is a critical metal; with supply tightening
+                    and an increased focus on resource security, I see meaningful upside potential in the company’s
+                    Botswana land package and broader asset base in a stronger commodity cycle. Goat Industries’
+                    BetSource platform reflects my belief that U.S. sports betting is still early and ripe for
+                    disruption, and partnerships like their recently announced deal with BKFC signal the kind of
+                    momentum that can drive scale. Finally, EduMentors is a private investment I’m passionate about
+                    because real mentoring is a major gap in education globally—especially for students who either need
+                    extra support or are ahead of the curve; EduMentors’ model of pairing learners with top-performing
+                    students from tier-one universities, combined with a tech-native, gamified approach and a clear
+                    automation roadmap, is why I believe the team can build something impactful both socially and
+                    financially."
+                  </p>
+                  <p className="mt-6">
+                    “Aduro Clean Technologies remains my highest-conviction long-term investment and my largest personal
+                    position. I believe their Hydrochemolytic™ (HCT) platform can economically address the hardest part of
+                    the plastic problem, mixed waste plastics, while also offering versatility across broader hydrocarbon
+                    upgrading applications, including heavy oil, renewables, BTX, and end-of-life tires.”
+                  </p>
+                </blockquote>
                 <p>
                   Recognized as a thought leader in sustainable venture capital, al Homsi champions the integration
                   of profitability with social responsibility. His unique multicultural perspective and extensive
