@@ -146,8 +146,33 @@ export default async function ArticlePage(props: Props) {
                     normal: ({ children }) => (
                       <p className="mb-6 leading-relaxed text-foreground/90">{children}</p>
                     ),
+                    h2: ({ children }) => (
+                      <h2 className="mt-10 mb-4 font-serif text-2xl font-bold tracking-tight text-foreground">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="mt-8 mb-3 font-serif text-xl font-bold tracking-tight text-foreground">
+                        {children}
+                      </h3>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-2 border-border pl-6 italic text-muted-foreground">
+                        {children}
+                      </blockquote>
+                    ),
+                  },
+                  list: {
+                    bullet: ({ children }) => <ul className="my-6 list-disc pl-6">{children}</ul>,
+                    number: ({ children }) => <ol className="my-6 list-decimal pl-6">{children}</ol>,
+                  },
+                  listItem: {
+                    bullet: ({ children }) => <li className="my-2">{children}</li>,
+                    number: ({ children }) => <li className="my-2">{children}</li>,
                   },
                   marks: {
+                    strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
+                    em: ({ children }) => <em className="italic">{children}</em>,
                     link: ({children, value}) => {
                       const href = (value as any)?.href || '#'
                       return (
